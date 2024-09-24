@@ -6,5 +6,13 @@ defmodule Darts do
   """
   @spec score(position) :: integer
   def score({x, y}) do
+    distance = (:math.pow(x, 2) + :math.pow(y, 2)) |> :math.sqrt()
+
+    cond do
+      distance > 10 -> 0
+      distance > 5 -> 1
+      distance > 1 -> 5
+      true -> 10
+    end
   end
 end
